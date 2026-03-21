@@ -79,7 +79,7 @@ const SocialIcons = () => {
           </a>
         </span>
       </div>
-      <a className="resume-button" href="#">
+      <a className="resume-button" href="#" onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event("openResume")); }} title="View Resume">
         <HoverLinks text="RESUME" />
         <span>
           <TbNotes />
