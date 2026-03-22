@@ -117,14 +117,22 @@ type PointerProps = {
 function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
   const ref = useRef<RapierRigidBody>(null);
 
-  useFrame(({ pointer, viewport }) => {
+  useFrame(({ pointer, viewport, clock }) => {
     if (!isActive) return;
+    
+    let targetX = (pointer.x * viewport.width) / 2;
+    let targetY = (pointer.y * viewport.height) / 2;
+    
+    // Auto-animate pointer on mobile to simulate desktop hovering physics
+    if (window.innerWidth <= 1024) {
+      const t = clock.getElapsedTime();
+      // Move in a Lissajous curve
+      targetX = Math.sin(t * 1.5) * (viewport.width / 4);
+      targetY = Math.cos(t * 2.0) * (viewport.height / 4);
+    }
+
     const targetVec = vec.lerp(
-      new THREE.Vector3(
-        (pointer.x * viewport.width) / 2,
-        (pointer.y * viewport.height) / 2,
-        0
-      ),
+      new THREE.Vector3(targetX, targetY, 0),
       0.2
     );
     ref.current?.setNextKinematicTranslation(targetVec);

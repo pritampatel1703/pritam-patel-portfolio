@@ -21,9 +21,7 @@ const Career = () => {
               <h3>1.5 YRS</h3>
             </div>
             <p>
-              Freelancing as a Web Developer since 1.5 years. Led a team as a
-              Leader in MECIA HACK hackathon and selected in top 10 teams. Also
-              works with a Non-Profitable Organisation for their Websites.
+              Freelancing as a Web Developer since 1.5 years. Led teams in several hackathons including Google Developer Groups, MECIA HACK hackathon and selected in top 10 teams. Also works with a Non-Profitable Organisation for their Websites.
             </p>
           </div>
           <div className="career-info-box">

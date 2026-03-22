@@ -63,6 +63,9 @@ const Loading = ({ percent }: { percent: number }) => {
         </div>
       </div>
       <div className="loading-screen">
+        <div className="mobile-pc-message">
+          For the best experience, use a PC
+        </div>
         <div className="loading-marquee">
           <Marquee>
             <span> Web Developer</span> <span>Multimedia Designer</span>
